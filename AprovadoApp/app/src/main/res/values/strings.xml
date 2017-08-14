@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">AprovadoApp</string>
+    <string name="disciplina1">Disciplina 1</string>
+    <string name="disciplina2">disciplina 2</string>
+    <string name="hintDisciplina">Digite o nome da disciplina</string>
+    <string name="nota1">Nota 1</string>
+    <string name="nota2">Nota 2</string>
+    <string name="nota3">Nota 3</string>
+    <string name="enviar">Enviar</string>
+    <string name="retornar">Retornar</string>
+    <string name="resFinal">Resultado Final</string>
+    <string name="media">Média</string>
+    <string name="situacao">Situação</string>
+    <string name="aprovado">Aprovado</string>
+    <string name="reprovado">Reprovado</string>
+    <string name="mediaGeral">Média geral</string>
+    <string name="situacaoFinal">Situação final</string>
+</resources>
