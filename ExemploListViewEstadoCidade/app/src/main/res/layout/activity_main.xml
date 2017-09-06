@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="senac.com.br.exemplolistviewestadocidade.activities.MainActivity">
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <Spinner
+        android:id="@+id/spinnerEstados"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="match_parent"></Spinner>
+    <ImageButton
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:id="@+id/imgId"
+        android:onClick="gerenciarEstados"
+        android:src="@android:drawable/ic_menu_add"
+        android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@id/main"
+        android:id="@+id/second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="nome da Cidade"
+            android:id="@+id/editNome"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="habitantes"
+            android:id="@+id/editHabitantes"
+            android:inputType="number"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salvar Cidade"
+            android:onClick="salvarCidade"/>
+    </LinearLayout>
+    <ListView
+        android:layout_below="@+id/second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listViewCidades"
+        android:divider="#990990"
+        android:dividerHeight="2dp"></ListView>
+</LinearLayout>
