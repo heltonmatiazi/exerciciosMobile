@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">"Avaliação 02 "</string>
+    <string name="adicionar">Add to tab</string>
+    <string name="calcular">calculate</string>
+    <string name="dividirConta">In how many people will the bill be split?</string>
+    <string name="fechar_a_conta">Close the tab</string>
+    <string name="minha_pedida">My Order</string>
+    <string name="nome_do_produto">Product Name</string>
+    <string name="pressione_calcular">Press the calculate button to obtain the value that each person should pay</string>
+    <string name="quantidade">Quantity</string>
+    <string name="subtotal">subtotal</string>
+    <string name="title_activity_fechar_conta">Close Tab</string>
+    <string name="title_activity_new_product">New Product</string>
+    <string name="totalPagar">Total to pay</string>
+    <string name="valor">"$: "</string>
+    <string name="valor_da_unidade">Unity Cost</string>
+    <string name="Finalizar">Finnish</string>
+    <string name="Retornar">Return</string>
+    <string name="_1">1</string>
+    <string name="desejaExcluirPedido">"Do you wish to delete this order: "</string>
+    <string name="erro_no_person">Select the quantity of people that will share the bill</string>
+    <string name="excluirPedido">Delete Order</string>
+    <string name="sair">Exit</string>
+    <string name="title_activity_novo_produto">New Product</string>
+    <string name="valorTotal1">"The total value shall be $: "</string>
+    <string name="valorTotal2">for each person</string>
+</resources>

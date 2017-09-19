@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="senac.com.br.prova02.activities.FecharContaActivity"
+    tools:showIn="@layout/activity_fechar_conta">
+    <TextView
+        style="@style/defaultWidthAndHeight"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp"
+        android:text="@string/title_activity_novo_produto"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:text="@string/dividirConta"/>
+   <NumberPicker
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/numFecharConta">
+
+   </NumberPicker>
+    <Button
+        android:text="@string/calcular"
+        style="@style/btnBase"
+        android:drawableStart="@android:drawable/ic_menu_more"
+        android:onClick="calcularFinal"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:id="@+id/totalIndividual"
+        android:hint="@string/pressione_calcular"/>
+    <Button
+        android:text="@string/Retornar"
+        style="@style/btnBase"
+        android:onClick="voltarParaMain"
+        android:drawableStart="@android:drawable/ic_media_previous"
+        />
+    <Button
+        android:text="@string/Finalizar"
+        style="@style/btnBase"
+        android:onClick="encerrarApp"
+        android:drawableStart="@android:drawable/ic_notification_clear_all"
+        />
+</LinearLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:padding="20dp">
+    <Spinner
+        style="@style/defaultWidthAndHeight"
+        android:layout_marginTop="35dp"
+        android:id="@+id/ProdutoSpinner"
+        />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/qtd"
+            android:text="@string/quantidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <NumberPicker
+            android:paddingTop="50dp"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:id="@+id/produtoPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <Button
+        android:onClick="concluir"
+        android:layout_weight="1"
+        android:text="@string/Finalizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="ButtonStyle"/>
+    <Button
+        android:onClick="voltar"
+        android:layout_weight="1"
+        android:text="@string/Retornar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="ButtonStyle"/>
+    </LinearLayout>
+
+</LinearLayout>

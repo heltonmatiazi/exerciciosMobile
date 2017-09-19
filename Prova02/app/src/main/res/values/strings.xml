@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Avaliação 02 </string>
+    <string name="title_activity_novo_produto">Novo Produto</string>
+    <string name="totalPagar">Total a Pagar</string>
+    <string name="valor">R$: </string>
+    <string name="minha_pedida">Minha Pedida</string>
+    <string name="adicionar">adicionar pedido</string>
+    <string name="Finalizar">Finalizar</string>
+    <string name="quantidade">Quantidade</string>
+    <string name="Retornar">Retornar</string>
+    <string name="nome_do_produto">Nome do Produto</string>
+    <string name="_1">1</string>
+    <string name="subtotal">SubTotal</string>
+    <string name="valor_da_unidade">Valor da Unidade</string>
+    <string name="title_activity_fechar_conta">FecharContaActivity</string>
+    <string name="fechar_a_conta">Fechar a Conta</string>
+    <string name="dividirConta">Em quantas Pessoas a conta será dividida?</string>
+    <string name="calcular">calcular</string>
+    <string name="pressione_calcular">Pressione o botão calcular para obter o valor que cada pessoa deve pagar</string>
+    <string name="valorTotal1">O valor total será de R$: </string>
+    <string name="valorTotal2"> para cada pessoa</string>
+    <string name="erro_no_person">Selecione a quantidade de pessoas que vão dividir a conta</string>
+    <string name="excluirPedido">Excluir Pedido</string>
+    <string name="desejaExcluirPedido">Deseja excluir o pedido: </string>
+    <string name="sair">Sair</string>
+</resources>
