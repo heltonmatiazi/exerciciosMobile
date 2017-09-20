@@ -18,10 +18,11 @@ import senac.com.br.prova02.model.Pedido;
 public class AdapterListView extends BaseAdapter {
     private LayoutInflater inflater;
     private ArrayList<Pedido> itens;
-
+    Context c;
     public AdapterListView(Context context,ArrayList<Pedido> itens) {
         this.itens = itens;
         inflater = LayoutInflater.from(context);
+        c= context;
     }
     @Override
     public int getCount(){
@@ -48,8 +49,8 @@ public class AdapterListView extends BaseAdapter {
 
         tvTexto.setText(item.getQuantidade().toString());
         tvDesc.setText(item.getProduto().getNome());
-        tvValor.setText("Valor Unitário: "+item.getProduto().getValor().toString());
-        tvValorUnitario.setText("Valor Total:  "+ String.valueOf(item.getSubtotal()));
+        tvValor.setText(c.getString(R.string.valor_da_unidade)+item.getProduto().getValor().toString());
+        tvValorUnitario.setText(c.getString(R.string.valor_da_unidade)+ String.valueOf(item.getSubtotal()));
         return view;
     };
 

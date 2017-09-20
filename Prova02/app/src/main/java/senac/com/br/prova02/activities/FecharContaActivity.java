@@ -52,7 +52,7 @@ public class FecharContaActivity extends AppCompatActivity {
     public void calcularFinal(View v){
         if(qtdPessoas.getValue() >= 1){
             Double valorFinal = valorConta/qtdPessoas.getValue();
-            totalIndividual.setText("O valor total será de R$: "+df.format(valorFinal)+" para cada pessoa");
+            totalIndividual.setText(getString(R.string.valorTotal1)+df.format(valorFinal)+getString(R.string.valorTotal2));
         }else{
             Toast.makeText(this,R.string.erro_no_person,Toast.LENGTH_SHORT).show();
         }

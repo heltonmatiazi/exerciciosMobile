@@ -23,4 +23,7 @@
     <string name="excluirPedido">Excluir Pedido</string>
     <string name="desejaExcluirPedido">Deseja excluir o pedido: </string>
     <string name="sair">Sair</string>
+    <string name="insira_pedido">Insira ao menos um pedido para fechar a conta</string>
+    <string name="cancelado">Cancelado</string>
+    <string name="canceladoUsuario">Ação cancelada pelo usuário</string>
 </resources>

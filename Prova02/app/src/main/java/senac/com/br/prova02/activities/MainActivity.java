@@ -51,10 +51,10 @@ public class MainActivity extends AppCompatActivity {
                 public boolean onItemLongClick(final AdapterView<?> adapterView, View view, int i, long l) {
                     pedido   =  (Pedido) adapterListView.getItem(i);
                     AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
-                    alerta.setTitle(R.string.excluirPedido);
-                    alerta.setMessage(R.string.desejaExcluirPedido + pedido.getProduto().getNome() + " ?");
+                    alerta.setTitle(getString(R.string.excluirPedido));
+                    alerta.setMessage(getString(R.string.desejaExcluirPedido) + pedido.getProduto().getNome() + " ?");
                     alerta.setIcon(android.R.drawable.ic_menu_delete);
-                    alerta.setPositiveButton(R.string.sair,null);
+                    alerta.setPositiveButton(getString(R.string.sair),null);
                     alerta.setNeutralButton("-1", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                             pedido.setQuantidade( --x);
                             valorTotal = valorTotal - pedido.getProduto().getValor();
                             pedido.setSubtotal(  pedido.getSubtotal() - pedido.getProduto().getValor());
-                            tvDescricao.setText("R$: "+ df.format(valorTotal));
+                            tvDescricao.setText(getString(R.string.valor)+ df.format(valorTotal));
                             pedido = null;
                             adapterListView.notifyDataSetChanged();
                         }
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                             pedido.setQuantidade( ++x);
                             valorTotal =  valorTotal+ pedido.getProduto().getValor();
                             pedido.setSubtotal(   pedido.getSubtotal() + pedido.getProduto().getValor());
-                            tvDescricao.setText("R$: "+ df.format(valorTotal));
+                            tvDescricao.setText(getString(R.string.valor)+ df.format(valorTotal));
                             pedido = null;
                             adapterListView.notifyDataSetChanged();
                         }
@@ -92,13 +92,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
        if( itens != null && itens.size() > 0){
-            tvValor.setText("Total a Pagar");
+            tvValor.setText(getString(R.string.totalPagar));
             adapterListView.notifyDataSetChanged();
             valorTotal = 0.0;
             for (int i = 0; i < itens.size(); i++) {
                 valorTotal +=   itens.get(i).getSubtotal();
             }
-            tvDescricao.setText("R$ "+ df.format(valorTotal));
+            tvDescricao.setText(getString(R.string.valor)+ df.format(valorTotal));
         }
     }
     public void realizarPedido(View v) {
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             i.putExtra("valorConta",valorTotal);
             startActivity(i);
         }else{
-            Toast.makeText(this,"Insira ao menos um pedido para fechar a conta",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getString(R.string.insira_pedido),Toast.LENGTH_SHORT).show();
         }
     }
     @Override
@@ -133,10 +133,10 @@ public class MainActivity extends AppCompatActivity {
                 Pedido p = (Pedido)  param.getSerializable("PEDIDO");
                 itens.add(p);
             }else if (resultCode==RESULT_CANCELED){
-                Toast.makeText(this, "Ação Cancelada", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.canceladoUsuario), Toast.LENGTH_SHORT).show();
             }
         }else{
-            Toast.makeText(this, " Cancelado ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.cancelado), Toast.LENGTH_SHORT).show();
         }
     }
 }
