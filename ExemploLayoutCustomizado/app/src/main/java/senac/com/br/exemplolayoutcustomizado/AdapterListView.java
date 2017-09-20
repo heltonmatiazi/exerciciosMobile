@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class AdapterListView extends BaseAdapter {
     private LayoutInflater inflater;
     private ArrayList<ItemListView> itens;
-
     public AdapterListView(Context context,ArrayList<ItemListView> itens) {
         this.itens = itens;
         inflater = LayoutInflater.from(context);
@@ -40,10 +39,8 @@ public class AdapterListView extends BaseAdapter {
       view = inflater.inflate(R.layout.item_listview,null);
       TextView tvTexto = (TextView) view.findViewById(R.id.textView);
       ImageView ivImagem = (ImageView) view.findViewById(R.id.imageView);
-
       tvTexto.setText(item.getTexto());
       ivImagem.setImageResource(item.getImageResId());
-
         return view;
     };
 

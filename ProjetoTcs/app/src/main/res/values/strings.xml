@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ProjetoTcs</string>
+    <string name="title_activity_preferences_fragment">PreferencesFragment</string>
+    <string name="preferences_test">Hello Preferences Fragment</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close"></string>
+</resources>
