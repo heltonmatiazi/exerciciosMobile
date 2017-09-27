@@ -1,5 +1,7 @@
 package senac.com.br.cadastrarlivros.activities;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -61,10 +63,33 @@ public class CadastrarLivroActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-
+        listViewLivro.setOnItemClickListener(cliqueCurto());
     }
-
+    private AdapterView.OnItemClickListener cliqueCurto(){
+      return new AdapterView.OnItemClickListener() {
+          @Override
+          public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+              livro = adapterLivro.getItem(i);
+              AlertDialog.Builder alerta = new AlertDialog.Builder(CadastrarLivroActivity.this);
+              alerta.setTitle("Deletando livro");
+              alerta.setMessage("Confirmar exclusão de "+livro.toString());
+              alerta.setNegativeButton("Não",null);
+              alerta.setPositiveButton("sim", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialogInterface, int i) {
+                      try {
+                          livroDao.delete(livro);
+                          adapterLivro.remove(livro);
+                          livro = null;
+                      } catch (SQLException e) {
+                          e.printStackTrace();
+                      }
+                  }
+              });
+              alerta.show();
+          }
+      };
+    };
     public void cadastrarLivro(View v)throws SQLException{
         if(livro == null){
             livro = new Livro();
@@ -82,6 +107,8 @@ public class CadastrarLivroActivity extends AppCompatActivity {
             livroDao.createOrUpdate(livro);
         }
         livro = null;
-
+        etNome.setText(" ");
+        etPaginas.setText(" ");
+        spAutor.setSelection(1);
     }
 }
