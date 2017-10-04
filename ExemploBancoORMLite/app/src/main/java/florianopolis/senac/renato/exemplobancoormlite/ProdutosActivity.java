@@ -73,6 +73,8 @@ public class ProdutosActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 produto = adapterProduto.getItem(position);
                 etNome.setText(produto.getNome());
+                //produto.setValor(parseDouble(etValor.getText().toString()));
+                etValor.setText("");
                 Toast.makeText(ProdutosActivity.this, "Editando "+produto.toString(), Toast.LENGTH_SHORT).show();
 
                 return true;
@@ -114,6 +116,7 @@ public class ProdutosActivity extends AppCompatActivity {
 
         produto.setNome(etNome.getText().toString());
         produto.setValor(parseDouble(etValor.getText().toString()));
+        produto.setCategoria((Categoria)spProdutos.getSelectedItem());
         Dao.CreateOrUpdateStatus res = produtoDao.createOrUpdate(produto);
 
         if(res.isCreated()) {
