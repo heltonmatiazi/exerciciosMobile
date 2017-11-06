@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">ExercicioTimes</string>
-    <string name="nome">Nome</string>
-    <string name="enviar">enviar</string>
-    <string name="idade">idade</string>
-    <string name="logo_de_time_de_futebol">logo de time de futebol</string>
-    <string name="maior">Maior de Idade</string>
-    <string name="menor">Menor de Idade</string>
-</resources>
