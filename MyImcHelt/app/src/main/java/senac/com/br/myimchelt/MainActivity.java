@@ -21,6 +21,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static senac.com.br.myimchelt.R.id.altura;
+import static senac.com.br.myimchelt.R.id.peso;
 import static senac.com.br.myimchelt.R.style.textView;
 
 
@@ -31,16 +33,16 @@ public class MainActivity extends AppCompatActivity {
    private EditText pesoEt;
    private EditText alturaEt;
    private ProgressBar mProgressBar;
-   private int progressStatus = 0;
    private TextView imcTexto;
+   public static final String PREFS_NAME = "MyPrefsFile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         userImage = (ImageView) findViewById(R.id.userImage);
-        pesoEt = (EditText) findViewById(R.id.peso);
-        alturaEt = (EditText) findViewById(R.id.altura);
+        pesoEt = (EditText) findViewById(peso);
+        alturaEt = (EditText) findViewById(altura);
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mProgressBar.setVisibility(View.INVISIBLE);
         imcTexto = (TextView) findViewById(R.id.imcTexto);
@@ -48,8 +50,20 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        float peso = settings.getFloat("peso",0);
+        float altura = settings.getFloat("altura",0);
+
+        /*
+        testando se os valores estão sendo salvos
+        Toast.makeText(this, "peso salvo: "+peso, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "alura salva: "+altura, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "ultimo IMC: "+imcFinal, Toast.LENGTH_SHORT).show();
+        */
 
 
+       pesoEt.setText(String.valueOf(peso));
+       alturaEt.setText(String.valueOf(altura));
     }
 
     public void novaImagem(View v) {
@@ -79,13 +93,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calcularImc(View v) {
-        SharedPreferences getPrefs = PreferenceManager
-                .getDefaultSharedPreferences(getBaseContext());
-        float peso = getPrefs.getFloat("peso", 0);
-        float altura = getPrefs.getFloat("altura",0);
-        float imc = getPrefs.getFloat("imc",0);
-
-
         float pesoFornecido = Float.parseFloat(pesoEt.getText().toString());
         float alturaFornecida = Float.parseFloat(alturaEt.getText().toString());
         if(pesoFornecido <= 1 || alturaFornecida <= 1){
@@ -94,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         float imcFinal;
         imcFinal = (pesoFornecido/(alturaFornecida*alturaFornecida));
 
-        Toast.makeText(this,"imcfinal: "+imcFinal,Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this,"imcfinal: "+imcFinal,Toast.LENGTH_SHORT).show();
 
         int maxValue=mProgressBar.getMax();
 
@@ -110,11 +117,13 @@ public class MainActivity extends AppCompatActivity {
            mProgressBar.setVisibility(View.VISIBLE);
         imcTexto.setText("Seu imc é: "+imcFinal);
 
-        SharedPreferences.Editor editor = getPrefs.edit();
+
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
         editor.putFloat("peso",pesoFornecido);
         editor.putFloat("altura",alturaFornecida);
         editor.putFloat("imc",imcFinal);
-        editor.apply();
+        editor.commit();
     }
 
     public void consultarAcademias(View v) {
