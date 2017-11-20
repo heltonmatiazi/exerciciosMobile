@@ -4,10 +4,13 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-feature android:name="android.hardware.camera"    android:required="true" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>﻿
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true"/>
 
     <application
         android:allowBackup="true"
@@ -32,15 +35,17 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/. 
         -->
 
+
         <!-- please don't steal my keys senpai -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key"/>
 
         <activity
-            android:name=".PesquisarAcademia"
-            android:label="@string/title_activity_pesquisar_academia">
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps">
         </activity>
+        <receiver android:name=".NotificationReciever"></receiver>
     </application>
 
 </manifest>

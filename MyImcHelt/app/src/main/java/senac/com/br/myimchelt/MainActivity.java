@@ -1,10 +1,13 @@
 package senac.com.br.myimchelt;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.icu.util.Calendar;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Environment;
@@ -54,17 +57,21 @@ public class MainActivity extends AppCompatActivity {
         float peso = settings.getFloat("peso",0);
         float altura = settings.getFloat("altura",0);
 
-        /*
-        testando se os valores estão sendo salvos
-        Toast.makeText(this, "peso salvo: "+peso, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "alura salva: "+altura, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "ultimo IMC: "+imcFinal, Toast.LENGTH_SHORT).show();
-        */
-
-
        pesoEt.setText(String.valueOf(peso));
        alturaEt.setText(String.valueOf(altura));
+
+        setNotifications();
     }
+    public void setNotifications(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY,8);
+        calendar.set(Calendar.MINUTE,0);
+        Intent intent = new Intent(getApplicationContext(),NotificationReciever.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),alarmManager.INTERVAL_DAY,pendingIntent);
+    }
+
 
     public void novaImagem(View v) {
         Intent photoCaptureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -100,12 +107,7 @@ public class MainActivity extends AppCompatActivity {
         }
         float imcFinal;
         imcFinal = (pesoFornecido/(alturaFornecida*alturaFornecida));
-
-       // Toast.makeText(this,"imcfinal: "+imcFinal,Toast.LENGTH_SHORT).show();
-
         int maxValue=mProgressBar.getMax();
-
-
         if(imcFinal <= 15){
             mProgressBar.setProgress(1);
         }else if(imcFinal > 15 && imcFinal <30){
@@ -116,8 +118,6 @@ public class MainActivity extends AppCompatActivity {
         }
            mProgressBar.setVisibility(View.VISIBLE);
         imcTexto.setText("Seu imc é: "+imcFinal);
-
-
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putFloat("peso",pesoFornecido);
@@ -127,10 +127,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void consultarAcademias(View v) {
-        Intent i = new Intent(this, PesquisarAcademia.class);
+        Intent i = new Intent(this, MapsActivity.class);
         startActivity(i);
     }
-
-
-
 }
