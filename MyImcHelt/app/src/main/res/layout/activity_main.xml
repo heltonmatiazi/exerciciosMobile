@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/bg"
+    tools:context="senac.com.br.myimchelt.MainActivity">
+
+    <ImageView
+        style="@style/styleBase"
+        android:src="@drawable/imc"
+        android:contentDescription="@string/app_logo"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/user_image"
+            android:id="@+id/userImage"/>
+        <Button
+            style="@style/button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/carregar_nova_imagem"
+            android:onClick="novaImagem"/>
+    </LinearLayout>
+
+    <TextView
+        style="@style/textView"
+        android:text="@string/dividor"/>
+
+    <TextView
+        style="@style/textView"
+        android:text="@string/insira_sua_altura"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/editText"
+        android:id="@+id/altura"
+        android:hint="@string/sua_altura_vai_aqui"/>
+
+    <TextView
+        style="@style/textView"
+        android:text="@string/insira_seu_peso"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/editText"
+        android:hint="@string/seu_peso_vai_aqui"
+        android:id="@+id/peso"/>
+
+    <Button
+        style="@style/button"
+        android:onClick="calcularImc"
+        android:text="@string/calcular_imc"
+        />
+
+    <android.support.v4.widget.ContentLoadingProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+
+
+    <Button
+        style="@style/button"
+        android:text="@string/consultar_academias_pr_ximas"
+        android:onClick="consultarAcademias"/>
+</LinearLayout>
