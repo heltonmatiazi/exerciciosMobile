@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // setando o caminho absoluto das imagens 
+        // setando o caminho absoluto das imagens
         mCurrentPhotoPath = image_file.getAbsolutePath();
         return image_file;
     }
