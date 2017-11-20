@@ -6,13 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/bg"
     tools:context="senac.com.br.myimchelt.MainActivity">
-
-    <ImageView
-        style="@style/styleBase"
-        android:src="@drawable/imc"
-        android:contentDescription="@string/app_logo"/>
-
-    <LinearLayout
+ <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:orientation="horizontal"
@@ -22,6 +16,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:src="@drawable/ui"
+            android:clickable="true"
+            android:onClick="verImagem"
             android:contentDescription="@string/user_image"
             android:id="@+id/userImage"/>
         <Button
@@ -45,6 +42,7 @@
         android:layout_height="wrap_content"
         style="@style/editText"
         android:id="@+id/altura"
+        android:inputType="numberDecimal"
         android:hint="@string/sua_altura_vai_aqui"/>
 
     <TextView
@@ -55,6 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/editText"
+        android:inputType="numberDecimal"
         android:hint="@string/seu_peso_vai_aqui"
         android:id="@+id/peso"/>
 
@@ -63,10 +62,18 @@
         android:onClick="calcularImc"
         android:text="@string/calcular_imc"
         />
-
-    <android.support.v4.widget.ContentLoadingProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"/>
+    <TextView
+        style="@style/textView"
+        android:id="@+id/imcTexto"/>
+    <ProgressBar
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="50"
+        android:indeterminate="false"
+        android:background="@color/pitchBlack"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:id="@+id/progressBar"/>
 
 
     <Button
