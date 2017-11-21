@@ -8,6 +8,12 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>﻿
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <permission android:name="senac.com.br.myimchelt.MAPS_RECEIVE" android:protectionLevel="signature"></permission>
+    <uses-permission android:name="senac.com.br.myimchelt.MAPS_RECEIVE"></uses-permission>
+    <uses-permission android:name="com.google.android.providers.gsf.permissions.READ_GSERVICES"></uses-permission>
+   <!-- openGl pro google maps -->
+    <uses-feature android:glEsVersion="0x0020000"></uses-feature>
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true"/>
@@ -26,15 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
-        -->
-
 
         <!-- please don't steal my keys senpai -->
         <meta-data
@@ -45,6 +42,10 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
         </activity>
+
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version">
+
+        </meta-data>
         <receiver android:name=".NotificationReciever"></receiver>
     </application>
 
