@@ -1,19 +1,13 @@
 package senac.com.br.myimchelt;
 
-import android.app.Activity;
+
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.icu.util.Calendar;
-import android.media.ThumbnailUtils;
-import android.net.Uri;
-import android.os.Environment;
-import android.os.Handler;
 import android.os.StrictMode;
-import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +20,7 @@ import android.widget.Toast;
 
 import static senac.com.br.myimchelt.R.id.altura;
 import static senac.com.br.myimchelt.R.id.peso;
-import static senac.com.br.myimchelt.R.style.textView;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -83,27 +77,22 @@ public class MainActivity extends AppCompatActivity {
         if(this.requestCode == requestCode && resultCode == RESULT_OK){
             Bitmap bitmap = (Bitmap)data.getExtras().get("data");
             userImage.setImageBitmap(bitmap);
-
         }
     }
-
-
     @Override
     protected void onResume() {
         super.onResume();
     }
-
-
     @Override
     protected void onPause() {
         super.onPause();
     }
-
     public void calcularImc(View v) {
         float pesoFornecido = Float.parseFloat(pesoEt.getText().toString());
         float alturaFornecida = Float.parseFloat(alturaEt.getText().toString());
         if(pesoFornecido <= 1 || alturaFornecida <= 1){
             Toast.makeText(this, "O peso ou a altura são inválidos", Toast.LENGTH_SHORT).show();
+            return;
         }
         float imcFinal;
         imcFinal = (pesoFornecido/(alturaFornecida*alturaFornecida));
@@ -112,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
             mProgressBar.setProgress(1);
         }else if(imcFinal > 15 && imcFinal <30){
            mProgressBar.setProgress(50);
-            //delayedUpdate(imcFinal);
         }else{
            mProgressBar.setProgress(maxValue);
         }
@@ -125,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
         editor.putFloat("imc",imcFinal);
         editor.commit();
     }
-
     public void consultarAcademias(View v) {
         Intent i = new Intent(this, MapsActivity.class);
         startActivity(i);

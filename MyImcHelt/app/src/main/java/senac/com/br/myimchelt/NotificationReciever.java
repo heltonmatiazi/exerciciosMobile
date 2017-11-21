@@ -14,10 +14,9 @@ import java.util.Random;
  */
 
 public class NotificationReciever extends BroadcastReceiver {
-    String[] motivation = {"não desiste","3 semanas","quase no fim","já foi quase pior","pensa que não tem muito o que possam fazer pra deixar isso mais miserável"};
+    String[] motivation = {"a vida é uma caixinha de surpresas","believe in yourself","um dia o sol vai explodir e extinguir a vida na galáxia","pensar em cinco mensagens motivacionais é surpreendentemente difícil","Desisto"};
     int idx = new Random().nextInt(motivation.length);
     String rand = (motivation[idx]);
-
     @Override
     public void onReceive(Context context, Intent intent) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "997981610303",
+    "firebase_url": "https://myimchelt-1511259666026.firebaseio.com",
+    "project_id": "myimchelt-1511259666026",
+    "storage_bucket": "myimchelt-1511259666026.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997981610303:android:bd497b2b6d9a3af7",
+        "android_client_info": {
+          "package_name": "senac.com.br.myimchelt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "997981610303-iobhatlmnvfbub37vbv0e1nvrb2mhmu0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBumB5hPYHP_vxM1XXiIpXubySdMJD1XXk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

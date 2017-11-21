@@ -26,6 +26,12 @@
     <string name="map_type_satellite">Satellite</string>
     <string name="map_type_hybrid">Hybrid</string>
     <string name="textview">TextView</string>
-
+    <string name="toast_ok">Permissão Concedida!</string>
+    <string name="toast_rep">Repita a ação!</string>
+    <string name="toast_negado">Permissão Negada!</string>
+    <string name="toast_provH">Provider Habilitado!</string>
+    <string name="toast_provD">Provider Desabilitado!</string>
+    <string name="toast_provDH">Habilite sua posição!</string>
+    <string name="toast_status">Status alterado!</string>
 
 </resources>
