@@ -50,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         float peso = settings.getFloat("peso",0);
         float altura = settings.getFloat("altura",0);
-
-       pesoEt.setText(String.valueOf(peso));
-       alturaEt.setText(String.valueOf(altura));
-
+        float imcUser = settings.getFloat("imc",0);
+        pesoEt.setText(String.valueOf(peso));
+        alturaEt.setText(String.valueOf(altura));
+        imcTexto.setText(String.valueOf("Seu imc é: "+imcUser));
         setNotifications();
     }
     public void setNotifications(){
@@ -97,10 +97,11 @@ public class MainActivity extends AppCompatActivity {
         float imcFinal;
         imcFinal = (pesoFornecido/(alturaFornecida*alturaFornecida));
         int maxValue=mProgressBar.getMax();
+        int progressValue = Math.round((((imcFinal/15)-1)*100));
         if(imcFinal <= 15){
             mProgressBar.setProgress(1);
         }else if(imcFinal > 15 && imcFinal <30){
-           mProgressBar.setProgress(50);
+           mProgressBar.setProgress(progressValue);
         }else{
            mProgressBar.setProgress(maxValue);
         }
